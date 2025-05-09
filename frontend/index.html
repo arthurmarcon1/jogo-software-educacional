@@ -1,72 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jogo Educacional 3D</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receitas Saudáveis - Jogo Educativo</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/css/styles.css" rel="stylesheet" />
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="#">Jogo 3D Educacional</a>
+            <a class="navbar-brand text-white" href="#"><i class="bi bi-heart-pulse-fill"></i> Receitas Saudáveis</a>
+            <div class="d-flex align-items-center">
+                <div id="userProgress" class="me-3 text-white"></div>
+                <button class="btn btn-sm btn-outline-light" id="loginBtn">
+                    <i class="bi bi-person-circle"></i> Entrar
+                </button>
+            </div>
         </div>
     </nav>
 
-    <header class="bg-light text-center py-5">
-        <div class="container">
-            <h1 class="display-4">Aprenda brincando!</h1>
-            <p class="lead">Explore o mundo 3D enquanto aprende novos conceitos.</p>
+    <div class="container mt-5">
+        <div class="glass text-center mb-4">
+            <h1><i class="bi bi-controller"></i> Jogo Educativo</h1>
+            <p class="lead">Aprenda receitas seguras e gostosas para pessoas com restrições alimentares.</p>
+            <a href="./build/index.html" class="btn btn-play">
+                <i class="bi bi-play-circle-fill"></i> Jogar Agora
+            </a>
         </div>
-    </header>
 
-    <main class="container my-5">
-        <section class="mb-5">
-            <h2>🎮 Regras do Jogo</h2>
-            <p>Descreva aqui as regras básicas para jogar. Ex: complete as fases acertando os desafios e ganhe pontos!
-            </p>
-        </section>
-
-        <section class="mb-5">
-            <h2>ℹ️ Sobre o Jogo</h2>
-            <p>Este jogo foi desenvolvido com Unity e tem como objetivo ensinar matemática básica de forma divertida
-                para crianças.</p>
-        </section>
-
-        <section class="mb-5">
-            <h2>🖼️ Galeria</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="https://via.placeholder.com/500x300" class="img-fluid rounded" alt="Imagem do jogo">
-                </div>
-                <div class="col-md-6">
-                    <video controls class="w-100 rounded">
-                        <source src="video-demo.mp4" type="video/mp4">
-                        Seu navegador não suporta vídeos.
-                    </video>
-                </div>
+        <div class="glass mb-4">
+            <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" id="carouselItems"></div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#recipeCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#recipeCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
             </div>
-        </section>
+        </div>
 
-        <section class="mb-5 text-center">
-            <h2>⬇️ Download</h2>
-            <a href="jogo.zip" class="btn btn-success btn-lg mt-2">Baixar Jogo</a>
-        </section>
+        <div class="glass p-4 mb-4">
+            <h4><i class="bi bi-graph-up"></i> Seu Progresso</h4>
+            <div class="progress mb-3">
+                <div class="progress-bar bg-success" id="mainProgress" style="width: 25%">25%</div>
+            </div>
+            <div class="achievements" id="achievements"></div>
+        </div>
 
-        <section>
-            <h2>👨‍💻 Créditos</h2>
-            <p>Desenvolvido por Arthur Marcon, Gleison Pires, Dante Dardaque, Felipe Sanfelice e Giovanni Cacioli
-                utilizando Unity 3D.</p>
-        </section>
-    </main>
+        <div class="glass p-4 mb-4">
+            <div id="quizContainer">
+                <h4><i class="bi bi-patch-question"></i> Quiz Nutricional</h4>
+                <div id="quizQuestion" class="mb-3"></div>
+                <div id="quizOptions"></div>
+                <button class="btn btn-sm btn-success mt-3" id="nextQuestion">Próxima Pergunta</button>
+            </div>
+        </div>
 
-    <footer class="bg-dark text-white text-center py-3">
-        <p class="mb-0">&copy; 2025 Jogo Educacional 3D</p>
+        <div class="glass p-4">
+            <h4><i class="bi bi-trophy"></i> Ranking</h4>
+            <ul class="list-group" id="rankingList"></ul>
+        </div>
+    </div>
+
+    <footer class="mt-5">
+        Desenvolvido por Arthur Marcon, Gleison Pires, Dante Dardaque, Felipe Sanfelice e Giovanni Cacioli © 2025
     </footer>
 
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
 </body>
 
 </html>
