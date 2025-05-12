@@ -1,80 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Receitas Saudáveis - Jogo Educativo</title>
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-    <link href="assets/css/styles.css" rel="stylesheet" />
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Receitas Saudáveis - Jogo Educativo</title>
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="assets/css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+        
+    </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand text-white" href="#"><i class="bi bi-heart-pulse-fill"></i> Receitas Saudáveis</a>
-            <div class="d-flex align-items-center">
-                <div id="userProgress" class="me-3 text-white"></div>
-                <button class="btn btn-sm btn-outline-light" id="loginBtn">
-                    <i class="bi bi-person-circle"></i> Entrar
-                </button>
+    <script>
+        // Função para carregar o modal
+        function loadLoginModal() {
+            fetch('assets/js/modals/login-modal.html')
+                .then(response => response.text())
+                .then(html => {
+                    // Insere o modal no final do body
+                    document.body.insertAdjacentHTML('beforeend', html);
+                    
+                    // Inicializa a lógica do login
+                    const loginScript = document.createElement('script');
+                    loginScript.src = '/assets/js/login.js';
+                    document.body.appendChild(loginScript);
+                });
+        }
+        
+        // Carrega o modal quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', loadLoginModal);
+    </script>
+
+    <body>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand text-white" href="#"><i class="bi bi-heart-pulse-fill"></i> Receitas Saudáveis</a>
+                <div class="d-flex align-items-center">
+                    <div id="userProgress" class="me-3 text-white"></div>
+                    <button class="btn btn-sm btn-outline-light" id="loginBtn">
+                        <i class="bi bi-person-circle"></i> Entrar
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-5">
+            <div class="glass text-center mb-4">
+                <h1><i class="bi bi-controller"></i> Jogo Educativo</h1>
+                <p class="lead">Aprenda receitas seguras e gostosas para pessoas com restrições alimentares.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="./build/index.html" class="btn btn-play">
+                        <i class="bi bi-play-circle-fill"></i> Jogar Agora
+                    </a>
+                    <button class="btn btn-rules" id="rulesBtn">
+                        <i class="bi bi-info-circle"></i> Regras
+                    </button>
+                </div>
+            </div>
+
+            <div class="glass mb-4">
+                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="carouselItems"></div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#recipeCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#recipeCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="glass p-4 mb-4">
+                <h4><i class="bi bi-graph-up"></i> Seu Progresso</h4>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-success" id="mainProgress" style="width: 25%">25%</div>
+                </div>
+                <div class="achievements" id="achievements"></div>
+            </div>
+
+            <div class="glass p-4 mb-4">
+                <div id="quizContainer">
+                    <h4><i class="bi bi-patch-question"></i> Quiz Nutricional</h4>
+                    <div id="quizQuestion" class="mb-3"></div>
+                    <div id="quizOptions"></div>
+                    <button class="btn btn-sm btn-success mt-3" id="nextQuestion">Próxima Pergunta</button>
+                </div>
+            </div>
+
+            <div class="glass p-4">
+                <h4><i class="bi bi-trophy"></i> Ranking</h4>
+                <ul class="list-group" id="rankingList"></ul>
             </div>
         </div>
-    </nav>
 
-    <div class="container mt-5">
-        <div class="glass text-center mb-4">
-            <h1><i class="bi bi-controller"></i> Jogo Educativo</h1>
-            <p class="lead">Aprenda receitas seguras e gostosas para pessoas com restrições alimentares.</p>
-            <a href="./build/index.html" class="btn btn-play">
-                <i class="bi bi-play-circle-fill"></i> Jogar Agora
-            </a>
-        </div>
-
-        <div class="glass mb-4">
-            <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner" id="carouselItems"></div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#recipeCarousel"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#recipeCarousel"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
+        <footer class="mt-auto">
+            <div class="container">
+                Desenvolvido por Arthur Marcon, Gleison Pires, Dante Dardaque, Felipe Sanfelice e Giovanni Cacioli © 2025
             </div>
-        </div>
+        </footer>
 
-        <div class="glass p-4 mb-4">
-            <h4><i class="bi bi-graph-up"></i> Seu Progresso</h4>
-            <div class="progress mb-3">
-                <div class="progress-bar bg-success" id="mainProgress" style="width: 25%">25%</div>
-            </div>
-            <div class="achievements" id="achievements"></div>
-        </div>
-
-        <div class="glass p-4 mb-4">
-            <div id="quizContainer">
-                <h4><i class="bi bi-patch-question"></i> Quiz Nutricional</h4>
-                <div id="quizQuestion" class="mb-3"></div>
-                <div id="quizOptions"></div>
-                <button class="btn btn-sm btn-success mt-3" id="nextQuestion">Próxima Pergunta</button>
-            </div>
-        </div>
-
-        <div class="glass p-4">
-            <h4><i class="bi bi-trophy"></i> Ranking</h4>
-            <ul class="list-group" id="rankingList"></ul>
-        </div>
-    </div>
-
-    <footer class="mt-5">
-        Desenvolvido por Arthur Marcon, Gleison Pires, Dante Dardaque, Felipe Sanfelice e Giovanni Cacioli © 2025
-    </footer>
-
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/login.js"></script>
+        <script src="assets/js/scripts.js"></script>
+    </body>
 
 </html>
