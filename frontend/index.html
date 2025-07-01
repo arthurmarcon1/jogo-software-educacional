@@ -8,6 +8,179 @@
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="assets/css/styles.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <style>
+        .pyramid-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .pyramid-level {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .pyramid-level:hover {
+            transform: scale(1.05);
+            z-index: 2;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .pyramid-level .level-info {
+            display: none;
+            position: absolute;
+            background: rgba(0,0,0,0.9);
+            padding: 10px;
+            border-radius: 5px;
+            width: 250px;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            font-size: 0.9rem;
+        }
+        
+        .pyramid-level:hover .level-info {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        /* Texturas e cores para cada nível */
+        .level-1 { 
+            width: 90%; 
+            height: 70px; 
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            border-bottom: 3px solid #1e8449;
+        }
+        
+        .level-2 { 
+            width: 80%; 
+            height: 60px; 
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            border-bottom: 3px solid #1a5276;
+        }
+        
+        .level-3 { 
+            width: 70%; 
+            height: 60px; 
+            background: linear-gradient(135deg, #f39c12, #f1c40f);
+            border-bottom: 3px solid #d35400;
+        }
+        
+        .level-4 { 
+            width: 60%; 
+            height: 50px; 
+            background: linear-gradient(135deg, #d35400, #e67e22);
+            border-bottom: 3px solid #a04000;
+        }
+        
+        .level-5 { 
+            width: 50%; 
+            height: 50px; 
+            background: linear-gradient(135deg, #c0392b, #e74c3c);
+            border-bottom: 3px solid #922b21;
+        }
+        
+        .level-6 { 
+            width: 40%; 
+            height: 40px; 
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            border-bottom: 3px solid #6c3483;
+        }
+        
+        .food-examples {
+            margin: 20px auto 0;
+            display: none;
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 15px;
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .food-examples.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        .food-emoji {
+            font-size: 2.5rem;
+            margin: 0 10px;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        
+        .food-emoji:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .food-icons-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .food-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80px;
+        }
+        
+        .food-icon span {
+            margin-top: 5px;
+            font-size: 0.8rem;
+            color: #333;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        #levelTitle {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        #levelContent {
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+        
+        /* Estilos para o quiz */
+        .btn-option {
+            width: 100%;
+            text-align: left;
+            transition: all 0.3s;
+        }
+        
+        .btn-option:hover {
+            transform: translateX(5px);
+        }
+        
+        /* Estilos para o ranking */
+        .list-group-item.active {
+            background-color: #88d498;
+            border-color: #88d498;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,9 +200,14 @@
         <div class="glass text-center mb-4">
             <h1><i class="bi bi-controller"></i> Jogo Educativo</h1>
             <p class="lead">Aprenda receitas seguras e gostosas para pessoas com restrições alimentares.</p>
-            <a href="./build/index.html" class="btn btn-play">
-                <i class="bi bi-play-circle-fill"></i> Jogar Agora
-            </a>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="\Build01\index.html" class="btn btn-play">
+                    <i class="bi bi-play-circle-fill"></i> Jogar Agora
+                </a>
+                <button class="btn btn-rules" id="rulesBtn">
+                    <i class="bi bi-info-circle"></i> Regras
+                </button>
+            </div>
         </div>
 
         <div class="glass mb-4">
@@ -47,11 +225,67 @@
         </div>
 
         <div class="glass p-4 mb-4">
-            <h4><i class="bi bi-graph-up"></i> Seu Progresso</h4>
-            <div class="progress mb-3">
-                <div class="progress-bar bg-success" id="mainProgress" style="width: 25%">25%</div>
+                <h4><i class="bi bi-graph-up"></i> Seu Progresso</h4>
+                <div class="progress mb-3">
+                    <div class="progress-bar bg-success" id="mainProgress" style="width: 25%">25%</div>
+                </div>
+                <div class="achievements" id="achievements"></div>
             </div>
-            <div class="achievements" id="achievements"></div>
+
+        <div class="glass p-4 mb-4">
+            <h4><i class="bi bi-nutrition"></i> Pirâmide Alimentar Interativa</h4>
+            <div class="pyramid-container">
+                <div class="pyramid-level level-1" data-level="1">
+                    🌾 Grãos e Cereais
+                    <div class="level-info">
+                        <strong>Grãos e Cereais</strong><br>
+                        Base da pirâmide. Consuma 6-11 porções diárias.
+                    </div>
+                </div>
+                <div class="pyramid-level level-2" data-level="2">
+                    🍎 Frutas e Vegetais
+                    <div class="level-info">
+                        <strong>Frutas e Vegetais</strong><br>
+                        Consuma 3-5 porções de vegetais e 2-4 porções de frutas diariamente.
+                    </div>
+                </div>
+                <div class="pyramid-level level-3" data-level="3">
+                    🥩 Proteínas
+                    <div class="level-info">
+                        <strong>Proteínas</strong><br>
+                        2-3 porções diárias de carnes, ovos, leguminosas e nozes.
+                    </div>
+                </div>
+                <div class="pyramid-level level-4" data-level="4">
+                    🥛 Lácteos
+                    <div class="level-info">
+                        <strong>Lácteos</strong><br>
+                        2-3 porções diárias de leite e derivados.
+                    </div>
+                </div>
+                <div class="pyramid-level level-5" data-level="5">
+                    🫒 Gorduras e Óleos
+                    <div class="level-info">
+                        <strong>Gorduras e Óleos</strong><br>
+                        Use com moderação. Prefira fontes saudáveis como azeite.
+                    </div>
+                </div>
+                <div class="pyramid-level level-6" data-level="6">
+                    🍬 Doces e Açúcares
+                    <div class="level-info">
+                        <strong>Doces e Açúcares</strong><br>
+                        Consuma ocasionalmente e em pequenas quantidades.
+                    </div>
+                </div>
+            </div>
+            
+            <div id="foodExamples" class="food-examples">
+                <h5 id="levelTitle">Grãos e Cereais</h5>
+                <div id="levelContent">Base da alimentação saudável. Fornecem energia para o corpo.</div>
+                <div class="food-icons-container" id="foodIcons">
+                    <!-- Exemplos serão inseridos aqui via JavaScript -->
+                </div>
+            </div>
         </div>
 
         <div class="glass p-4 mb-4">
@@ -69,12 +303,15 @@
         </div>
     </div>
 
-    <footer class="mt-5">
-        Desenvolvido por Arthur Marcon, Gleison Pires, Dante Dardaque, Felipe Sanfelice e Giovanni Cacioli © 2025
+    <footer class="mt-auto">
+        <div class="container">
+            Desenvolvido por Arthur Marcon, Gleison Pires, Dante Dardaque, Felipe Sanfelice e Giovanni Cacioli © 2025
+        </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/login.js"></script>
 </body>
-
 </html>
