@@ -207,6 +207,48 @@ footer::before {
     animation: fadeIn 0.6s ease-out forwards;
 }
 
+/* Estilos específicos para o carrossel de receitas */
+#recipeCarousel {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.carousel-inner {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 400px; /* Altura fixa para todas as imagens */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    object-position: center; /* Centraliza a imagem */
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 15px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 700px;
+}
+
+/* Ajuste para dispositivos móveis */
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 300px;
+    }
+    
+    .carousel-caption {
+        padding: 10px;
+        bottom: 10px;
+    }
+}
+
 /* Atrasos para a animação em cascata */
 .glass:nth-child(1) { animation-delay: 0.1s; }
 .glass:nth-child(2) { animation-delay: 0.3s; }

@@ -1,25 +1,49 @@
 [
     {
-        "name": "Bolo de Banana Sem Glúten",
-        "description": "Delicioso bolo de banana feito com farinha de arroz, perfeito para celíacos.",
-        "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=300&q=80",
-        "time": 45,
-        "servings": 8,
+        "name": "Arroz Integral com Vegetais",
+        "description": "Arroz integral energético acompanhado de cenoura e ervilhas, rico em fibras e vitaminas.",
+        "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+        "time": 35,
+        "servings": 4,
         "difficulty": "Fácil"
     },
     {
-        "name": "Pão Vegano de Linhaça",
-        "description": "Pão nutritivo sem ovos ou laticínios, rico em ômega-3.",
-        "image": "https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=300&q=80",
-        "time": 60,
-        "servings": 10,
+        "name": "Salada Colorida com Molho de Iogurte",
+        "description": "Salada fresca com beterraba, pepino e molho cremoso de iogurte e limão, cheia de antioxidantes.",
+        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+        "time": 15,
+        "servings": 3,
+        "difficulty": "Fácil"
+    },
+    {
+        "name": "Hambúrguer de Feijão Preto",
+        "description": "Hambúrguer vegetariano proteico feito com feijão preto e aveia, assado e sem óleo.",
+        "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80",
+        "time": 30,
+        "servings": 4,
         "difficulty": "Médio"
     },
     {
-        "name": "Cookies Sem Açúcar",
-        "description": "Cookies adoçados com tâmaras, perfeito para diabéticos.",
-        "image": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=300&q=80",
-        "time": 30,
+        "name": "Smoothie de Banana com Leite Vegetal",
+        "description": "Bebida cremosa com banana, leite de amêndoas e chia, fonte de cálcio e ômega-3.",
+        "image": "https://images.unsplash.com/photo-1505576399279-565b52d4ac71",
+        "time": 5,
+        "servings": 2,
+        "difficulty": "Fácil"
+    },
+    {
+        "name": "Pasta de Abacate com Torradas Integrais",
+        "description": "Pasta cremosa de abacate temperada com limão e azeite, perfeita para lanches rápidos e saudáveis.",
+        "image": "https://images.unsplash.com/photo-1559847844-5315695dadae",
+        "time": 10,
+        "servings": 2,
+        "difficulty": "Fácil"
+    },
+    {
+        "name": "Cookies de Aveia e Mel",
+        "description": "Cookies sem açúcar refinado, adoçados com banana e mel, ideais para um lanche nutritivo.",
+        "image": "https://images.unsplash.com/photo-1618923850107-d1a234d7a73a",
+        "time": 25,
         "servings": 12,
         "difficulty": "Fácil"
     }
