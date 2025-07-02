@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cardápio de Receitas</title>
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/css/styles.css" rel="stylesheet" />
+  <style>
+    body {
+      background: #fff8e1; /* tom creme */
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .cardapio-title {
+      color: #5d4037; /* marrom escuro */
+      margin-bottom: 30px;
+    }
+
+    .receita-card {
+      border: none;
+      border-radius: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .receita-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .receita-img {
+      height: 200px;
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    .card-title {
+      color: #ff7043; /* laranja queimado */
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px 0;
+      background: #ffe0b2;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5d4037;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="glass text-center mb-4">
+      <h1 class="cardapio-title"><i class="bi bi-journal-bookmark-fill"></i> Cardápio de Receitas</h1>
+    </div>
+
+    <div class="glass mb-5 p-4">
+        <h2 class="cardapio-title text-center"><i class="bi bi-info-circle-fill"></i> Sobre o Cardápio</h2>
+        <p style="font-size: 25px; color: #5d4037">Este cardápio foi cuidadosamente elaborado para oferecer opções deliciosas e equilibradas...</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <!-- RECEITAS (1 a 20) -->
+      <!-- Use este bloco como base e duplique, alterando o conteúdo -->
+      <!-- Receita 1 -->
+      <div class="col">
+        <div class="card receita-card">
+          <img src="data/img/1.png" class="card-img-top receita-img" alt="Receita 1">
+          <div class="card-body">
+            <h5 class="card-title">Hamburguer Classico</h5>
+            <p class="card-text">Informacoes.</p>
+            <p class="card-text">Composiçao.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col">
+        <div class="card receita-card">
+          <img src="data/img/2.png" class="card-img-top receita-img" alt="Receita 2">
+          <div class="card-body">
+            <h5 class="card-title">Hamburguer Classico com Bacon</h5>
+            <p class="card-text">Informacoes.</p>
+            <p class="card-text">Composiçao.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card receita-card">
+          <img src="data/img/3.png" class="card-img-top receita-img" alt="Receita 3">
+          <div class="card-body">
+            <h5 class="card-title">Hamburguer Vegetariano</h5>
+            <p class="card-text">Informacoes.</p>
+            <p class="card-text">Composiçao.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card receita-card">
+          <img src="data/img/4.png" class="card-img-top receita-img" alt="Receita 4">
+          <div class="card-body">
+            <h5 class="card-title">Hot Dog Classico</h5>
+            <p class="card-text">Informacoes.</p>
+            <p class="card-text">Composiçao.</p>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 - Missão NutriLanche
+  </footer>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

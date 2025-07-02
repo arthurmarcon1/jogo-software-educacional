@@ -116,33 +116,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameRules = `
     🏆 REGRAS DO JOGO 🏆
 
-    1. INTERAÇÃO COM O CLIENTE:
-    - Cada cliente chegará com um pedido específico
-    - Pode ser:
-        * Uma restrição alimentar (sem glúten, sem lactose, etc.)
-        * Um objetivo nutricional (emagrecimento, ganho muscular)
-        * Uma preferência dietética (vegano, low-carb, etc.)
+Leia o Pedido do Cliente
+Cozinhe os Ingredientes Necessários. Hambúrguer, bacon e cogumelos devem ser cozinhados antes de usar.
 
-    2. MONTAGEM DO PRATO:
-    - Você verá uma seleção de ingredientes disponíveis
-    - Deve combinar os ingredientes corretamente para atender ao pedido
-    - Alguns ingredientes podem ser incompatíveis com certas restrições
+Monte o Lanche na Bancada
+Coloque os ingredientes em qualquer ordem, desde que esteja no pedido.
 
-    3. PONTUAÇÃO:
-    - Acerto perfeito: 100 pontos (todos os critérios atendidos)
-    - Acerto parcial: 50 pontos (alguns critérios atendidos)
-    - Erro: 0 pontos (não atendeu ao pedido)
+Entregue no Prato do Cliente
+Pegue o lanche pronto e coloque no prato do cliente correto.
+Cliente errado = erro.
 
-    4. NÍVEIS DE DIFICULDADE:
-    - Iniciante: 3-4 ingredientes, 1 restrição
-    - Intermediário: 5-6 ingredientes, 2 restrições
-    - Avançado: 7+ ingredientes, múltiplas restrições
+Atenção ao Tempo! Cada pedido tem um tempo limite. Passou do tempo = cliente vai embora bravo.
 
-    5. BÔNUS:
-    - Combinações criativas podem render pontos extras
-    - Sequências de acertos dão multiplicadores
-
-    DICA: Preste atenção nas informações nutricionais dos ingredientes e nas necessidades do cliente!
+Ganhe Pontos
+Pedido certo = +1 ponto. Pedido rápido e perfeito = bônus. Pedido errado = -1 ponto.
     `;
 
     // Event Listener para o botão de regras
