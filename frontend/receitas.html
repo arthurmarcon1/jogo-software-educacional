@@ -1,130 +1,332 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cardápio de Receitas</title>
-  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-  <link href="assets/css/styles.css" rel="stylesheet" />
-  <style>
-    body {
-      background: #fff8e1; /* tom creme */
-      font-family: 'Segoe UI', sans-serif;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cardápio de Receitas</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/css/styles.css" rel="stylesheet" />
+    <style>
+      body {
+        background: #fff8e1; /* tom creme */
+        font-family: 'Segoe UI', sans-serif;
+      }
 
-    .glass {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    }
+      .glass {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
 
-    .cardapio-title {
-      color: #5d4037; /* marrom escuro */
-      margin-bottom: 30px;
-    }
+      .cardapio-title {
+        color: #5d4037; /* marrom escuro */
+        margin-bottom: 30px;
+      }
 
-    .receita-card {
-      border: none;
-      border-radius: 15px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+      .receita-card {
+        border: none;
+        border-radius: 15px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
 
-    .receita-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
+      .receita-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
 
-    .receita-img {
-      height: 200px;
-      object-fit: cover;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-    }
+      .receita-img {
+        height: 200px;
+        object-fit: cover;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
 
-    .card-title {
-      color: #ff7043; /* laranja queimado */
-    }
+      .card-title {
+        color: #ff7043; /* laranja queimado */
+      }
 
-    footer {
-      margin-top: 40px;
-      padding: 20px 0;
-      background: #ffe0b2;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #5d4037;
-    }
-  </style>
-</head>
-<body>
-  <div class="container mt-5">
-    <div class="glass text-center mb-4">
-      <h1 class="cardapio-title"><i class="bi bi-journal-bookmark-fill"></i> Cardápio de Receitas</h1>
-    </div>
+      footer {
+        margin-top: 40px;
+        padding: 20px 0;
+        background: #ffe0b2;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #5d4037;
+      }
+    </style>
+  </head>
 
-    <div class="glass mb-5 p-4">
-        <h2 class="cardapio-title text-center"><i class="bi bi-info-circle-fill"></i> Sobre o Cardápio</h2>
-        <p style="font-size: 25px; color: #5d4037">Este cardápio foi cuidadosamente elaborado para oferecer opções deliciosas e equilibradas...</p>
-    </div>
+  <body>
+    <div class="container mt-5">
+      <div class="glass text-center mb-4">
+        <h1 class="cardapio-title">
+          <i class="bi bi-journal-bookmark-fill"></i> Cardápio de Receitas
+        </h1>
+      </div>
 
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-      <!-- RECEITAS (1 a 20) -->
-      <!-- Use este bloco como base e duplique, alterando o conteúdo -->
-      <!-- Receita 1 -->
-      <div class="col">
-        <div class="card receita-card">
-          <img src="data/img/1.png" class="card-img-top receita-img" alt="Receita 1">
-          <div class="card-body">
-            <h5 class="card-title">Hamburguer Classico</h5>
-            <p class="card-text">Informacoes.</p>
-            <p class="card-text">Composiçao.</p>
+      <!-- DICAS DE MONTAGEM -->
+      <div class="glass mb-5 p-4">
+        <h2 class="cardapio-title text-center">
+          <i class="bi bi-info-circle-fill"></i> Dicas de Montagem
+        </h2>
+        <p style="font-size: 25px; color: #5d4037">
+          A montagem dos lanches deve ser feita <strong>na bancada que possui o botão de “Criar”</strong>.
+          Os ingredientes não precisam estar em uma ordem certa, apenas com a quantidade exata — isso é essencial para obter um lanche correto.
+          Alimentos que precisam ser preparados, como hambúrguer, bacon, salsicha, picanha e cogumelos, devem ser
+          <strong>grelhados previamente na grelha maior</strong> antes de serem usados na montagem.
+          Fique atento às variações aceitas e evite combinações que não fazem parte das receitas esperadas.
+        </p>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- HAMBÚRGUER CLÁSSICO -->
+        <div class="col">
+          <div class="card receita-card">
+            <img src="data/img/1.png" class="card-img-top receita-img" alt="Receita 1" />
+            <div class="card-body">
+              <h5 class="card-title">Hamburguer Clássico</h5>
+              <p class="card-text">
+                Um lanche tradicional com pão, hambúrguer e salada (alface, tomate e cebola).
+                Pode ser servido com ketchup ou mostarda, ou ainda sem salada.
+              </p>
+              <p class="card-text">
+                <strong>Dica:</strong> Não esqueça da salada para garantir a montagem clássica. Evite colocar os dois molhos juntos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- HAMBÚRGUER COM BACON -->
+        <div class="col">
+          <div class="card receita-card">
+            <img src="data/img/2.png" class="card-img-top receita-img" alt="Receita 2" />
+            <div class="card-body">
+              <h5 class="card-title">Hamburguer com Bacon</h5>
+              <p class="card-text">
+                Versão robusta com pão, hambúrguer, bacon e salada.
+                Pode incluir ketchup, mostarda ou vir sem salada.
+              </p>
+              <p class="card-text">
+                <strong>Dica:</strong> Bacon é obrigatório nesta receita. Cuidado para não esquecer o hambúrguer ou trocar o tipo de carne.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- VEGETARIANO -->
+        <div class="col">
+          <div class="card receita-card">
+            <img src="data/img/3.png" class="card-img-top receita-img" alt="Receita 3" />
+            <div class="card-body">
+              <h5 class="card-title">Hamburguer Vegetariano</h5>
+              <p class="card-text">
+                Um lanche sem carne, composto por pão, 4 cogumelos grelhados e salada.
+                Pode incluir ketchup, mostarda ou vir sem salada.
+              </p>
+              <p class="card-text">
+                <strong>Dica:</strong> Certifique-se de incluir exatamente 4 cogumelos para acertar o ponto da receita. Evite carnes nesse tipo de lanche!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOT DOG -->
+        <div class="col">
+          <div class="card receita-card">
+            <img src="data/img/4.png" class="card-img-top receita-img" alt="Receita 4" />
+            <div class="card-body">
+              <h5 class="card-title">Hot Dog Clássico</h5>
+              <p class="card-text">
+                Preparado com pão de hot dog, 2 salsichas e salada.
+                Pode ser servido com ketchup, mostarda ou ambos. Também pode ser feito sem salada.
+              </p>
+              <p class="card-text">
+                <strong>Dica:</strong> Use exatamente 2 salsichas. Cuidado ao adicionar molhos — apenas 1 de cada.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PICANHA -->
+        <div class="col">
+          <div class="card receita-card">
+            <img src="data/img/5.png" class="card-img-top receita-img" alt="Receita 5" />
+            <div class="card-body">
+              <h5 class="card-title">Lanche de Picanha</h5>
+              <p class="card-text">
+                Montado com pão, carne de picanha e salada.
+                Variações incluem ketchup, mostarda ou opção sem salada.
+              </p>
+              <p class="card-text">
+                <strong>Dica:</strong> Use a carne de picanha, e não o hambúrguer comum. A salada faz parte da versão clássica.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
-
-      <div class="col">
-        <div class="card receita-card">
-          <img src="data/img/2.png" class="card-img-top receita-img" alt="Receita 2">
-          <div class="card-body">
-            <h5 class="card-title">Hamburguer Classico com Bacon</h5>
-            <p class="card-text">Informacoes.</p>
-            <p class="card-text">Composiçao.</p>
-          </div>
-        </div>
+      <!-- INFORMAÇÕES NUTRICIONAIS -->
+      <div class="glass text-center mb-4 mt-5">
+        <h1 class="cardapio-title">
+          <i class="bi bi-journal-bookmark-fill"></i> Informações Nutricionais
+        </h1>
       </div>
 
-      <div class="col">
-        <div class="card receita-card">
-          <img src="data/img/3.png" class="card-img-top receita-img" alt="Receita 3">
-          <div class="card-body">
-            <h5 class="card-title">Hamburguer Vegetariano</h5>
-            <p class="card-text">Informacoes.</p>
-            <p class="card-text">Composiçao.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card receita-card">
-          <img src="data/img/4.png" class="card-img-top receita-img" alt="Receita 4">
-          <div class="card-body">
-            <h5 class="card-title">Hot Dog Classico</h5>
-            <p class="card-text">Informacoes.</p>
-            <p class="card-text">Composiçao.</p>
-          </div>
-        </div>
-      </div>
-
-      </div>
+      <!-- GRID DE INGREDIENTES -->
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 mt-3">
+        <!-- CARD DE INGREDIENTE EXEMPLO: PÃO -->
+<!-- PÃO -->
+<div class="col">
+  <div class="card receita-card text-center">
+    <img src="data/img/9.png" class="card-img-top receita-img" alt="Pão">
+    <div class="card-body">
+      <h6 class="card-title">Pão</h6>
+      <p class="card-text mb-1"><strong>Porção:</strong> 1 unidade (50g)</p>
+      <p class="card-text mb-1"><strong>Calorias:</strong> 135 kcal</p>
+      <p class="card-text mb-1"><strong>Carboidratos:</strong> 25g</p>
+      <p class="card-text mb-1"><strong>Proteínas:</strong> 4g</p>
+      <p class="card-text mb-1"><strong>Gorduras:</strong> 1,5g</p>
+      <p class="card-text">Base de energia para o lanche.</p>
     </div>
   </div>
+</div>
 
-  <footer>
-    &copy; 2025 - Missão NutriLanche
-  </footer>
+<!-- HAMBÚRGUER -->
+<div class="col">
+  <div class="card receita-card text-center">
+    <img src="data/img/8.png" class="card-img-top receita-img" alt="Hambúrguer">
+    <div class="card-body">
+      <h6 class="card-title">Hambúrguer</h6>
+      <p class="card-text mb-1"><strong>Porção:</strong> 1 unidade (100g)</p>
+      <p class="card-text mb-1"><strong>Calorias:</strong> 250 kcal</p>
+      <p class="card-text mb-1"><strong>Proteínas:</strong> 20g</p>
+      <p class="card-text mb-1"><strong>Gorduras:</strong> 18g</p>
+      <p class="card-text mb-1"><strong>Carboidratos:</strong> 1g</p>
+      <p class="card-text">Fonte de proteína e gordura.</p>
+    </div>
+  </div>
+</div>
 
-  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+<!-- BACON -->
+<div class="col">
+  <div class="card receita-card text-center">
+    <img src="data/img/6.png" class="card-img-top receita-img" alt="Bacon">
+    <div class="card-body">
+      <h6 class="card-title">Bacon</h6>
+      <p class="card-text mb-1"><strong>Porção:</strong> 2 fatias (30g)</p>
+      <p class="card-text mb-1"><strong>Calorias:</strong> 160 kcal</p>
+      <p class="card-text mb-1"><strong>Proteínas:</strong> 10g</p>
+      <p class="card-text mb-1"><strong>Gorduras:</strong> 14g</p>
+      <p class="card-text mb-1"><strong>Carboidratos:</strong> 0g</p>
+      <p class="card-text">Adiciona sabor e crocância.</p>
+    </div>
+  </div>
+</div>
+
+<!-- COGUMELO -->
+<div class="col">
+  <div class="card receita-card text-center">
+    <img src="data/img/12.png" class="card-img-top receita-img" alt="Cogumelo">
+    <div class="card-body">
+      <h6 class="card-title">Cogumelo</h6>
+      <p class="card-text mb-1"><strong>Porção:</strong> 4 unidades (40g)</p>
+      <p class="card-text mb-1"><strong>Calorias:</strong> 25 kcal</p>
+      <p class="card-text mb-1"><strong>Proteínas:</strong> 3g</p>
+      <p class="card-text mb-1"><strong>Carboidratos:</strong> 3g</p>
+      <p class="card-text mb-1"><strong>Gorduras:</strong> 0g</p>
+      <p class="card-text">Fonte leve de proteína vegetal.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SALADA (ALFACE, TOMATE, CEBOLA) -->
+<div class="col">
+  <div class="card receita-card text-center">
+    <img src="data/img/11.png" class="card-img-top receita-img" alt="Salada">
+    <div class="card-body">
+      <h6 class="card-title">Salada</h6>
+      <p class="card-text mb-1"><strong>Porção:</strong> Mix (50g)</p>
+      <p class="card-text mb-1"><strong>Calorias:</strong> 20 kcal</p>
+      <p class="card-text mb-1"><strong>Carboidratos:</strong> 4g</p>
+      <p class="card-text mb-1"><strong>Fibras:</strong> 2g</p>
+      <p class="card-text mb-1"><strong>Vitaminas:</strong> A, C e K</p>
+      <p class="card-text">Frescor, cor e nutrientes essenciais.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SALSICHA -->
+<div class="col">
+  <div class="card receita-card text-center">
+    <img src="data/img/10.png" class="card-img-top receita-img" alt="Salsicha">
+    <div class="card-body">
+      <h6 class="card-title">Salsicha</h6>
+      <p class="card-text mb-1"><strong>Porção:</strong> 2 unidades (80g)</p>
+      <p class="card-text mb-1"><strong>Calorias:</strong> 220 kcal</p>
+      <p class="card-text mb-1"><strong>Proteínas:</strong> 8g</p>
+      <p class="card-text mb-1"><strong>Gorduras:</strong> 18g</p>
+      <p class="card-text mb-1"><strong>Sódio:</strong> 600mg</p>
+      <p class="card-text">Fonte prática e saborosa de proteína.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PICANHA -->
+<div class="col">
+  <div class="card receita-card text-center">
+    <img src="data/img/7.png" class="card-img-top receita-img" alt="Picanha">
+    <div class="card-body">
+      <h6 class="card-title">Picanha</h6>
+      <p class="card-text mb-1"><strong>Porção:</strong> 1 fatia (100g)</p>
+      <p class="card-text mb-1"><strong>Calorias:</strong> 320 kcal</p>
+      <p class="card-text mb-1"><strong>Proteínas:</strong> 24g</p>
+      <p class="card-text mb-1"><strong>Gorduras:</strong> 26g</p>
+      <p class="card-text mb-1"><strong>Ferro:</strong> 2.5mg</p>
+      <p class="card-text">Corte nobre, rico em sabor e proteína.</p>
+    </div>
+  </div>
+</div>
+
+<!-- KETCHUP -->
+<div class="col">
+  <div class="card receita-card text-center">
+    <img src="data/img/13.png" class="card-img-top receita-img" alt="Ketchup">
+    <div class="card-body">
+      <h6 class="card-title">Ketchup</h6>
+      <p class="card-text mb-1"><strong>Porção:</strong> 1 colher (15g)</p>
+      <p class="card-text mb-1"><strong>Calorias:</strong> 20 kcal</p>
+      <p class="card-text mb-1"><strong>Açúcares:</strong> 4g</p>
+      <p class="card-text mb-1"><strong>Sódio:</strong> 160mg</p>
+      <p class="card-text">Molho adocicado e ácido, usado com moderação.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MOSTARDA -->
+<div class="col">
+  <div class="card receita-card text-center">
+    <img src="data/img/14.png" class="card-img-top receita-img" alt="Mostarda">
+    <div class="card-body">
+      <h6 class="card-title">Mostarda</h6>
+      <p class="card-text mb-1"><strong>Porção:</strong> 1 colher (10g)</p>
+      <p class="card-text mb-1"><strong>Calorias:</strong> 5 kcal</p>
+      <p class="card-text mb-1"><strong>Sódio:</strong> 55mg</p>
+      <p class="card-text mb-1"><strong>Açúcares:</strong> 0g</p>
+      <p class="card-text">Molho picante e leve, ideal para realçar sabores.</p>
+    </div>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 - Missão NutriLanche
+    </footer>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
